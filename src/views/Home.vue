@@ -20,7 +20,7 @@
         <info-container></info-container>
       </mt-tab-container-item>
     </mt-tab-container>
-    <mt-tabbar v-model="selected">
+    <mt-tabbar v-model="selected" fixed>
       <mt-tab-item id="Home">
         <img slot="icon" src="../assets/img/home.svg" alt="">
         首页
