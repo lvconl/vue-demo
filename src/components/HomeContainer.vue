@@ -16,5 +16,6 @@ export default {
 <style lang="scss" scoped>
   .swipe-wrapper{
     height: 200px;
+    margin-top: 3rem;
   }
 </style>

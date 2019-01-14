@@ -110,6 +110,10 @@ export default {
 }
 </script>
 <style scoped>
+.header {
+  margin-top: 4rem;
+  text-align: center;
+}
 .login-box{
     margin-top: 2rem;
 }

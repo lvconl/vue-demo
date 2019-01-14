@@ -32,7 +32,6 @@ export default {
     axios.get('http://localhost:5000/api/get_img/1')
       .then(res => {
         if (res.data.img_stream) {
-          console.log(res.data.img_stream)
           this.avatar = res.data.img_stream
         }
       })
@@ -58,7 +57,6 @@ export default {
     },
     upload () {
       const file = this.avatar
-      console.log(file)
       axios
         .post(
           'http://localhost:5000/api/upload_image',
@@ -88,11 +86,14 @@ export default {
 }
 </script>
 <style scoped>
+.upload{
+  margin-top: 3.5rem;
+}
 .img-box {
     width: 70%;
     height: 70%;
     margin: 0 auto;
-    margin-top: 3rem;
+    margin-top: 1rem;
 }
 .img-box img {
     border-radius: 50%;

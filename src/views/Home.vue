@@ -6,7 +6,7 @@
     <mt-header fixed :title="selected" v-else>
       <mt-button icon="back" slot="left" @click="backToHome"></mt-button>
     </mt-header>
-    <mt-tab-container v-model="selected" swipe>
+    <mt-tab-container v-model="selected" swipeable>
       <mt-tab-container-item id="Home">
         <home-container></home-container>
       </mt-tab-container-item>
@@ -60,10 +60,17 @@ export default {
   data: function () {
     return {
       location: '',
-      selected: 'Home'
+      selected: ''
     }
   },
   mounted: function () {
+    // 获取后退后首页选中状态
+    var selected = sessionStorage.getItem('selected')
+    if (selected === '') {
+      this.selected = selected
+    } else {
+      this.selected = 'Home'
+    }
     let self = this
     lazyAMapApiLoaderInstance.load().then(() => {
       map = new AMap.Map('amap-box', {
@@ -89,7 +96,6 @@ export default {
   methods: {
     onComplete (data) {
       this.location = data.formattedAddress
-      console.log(data.formattedAddress)
     },
     onError (data) {
       if (data.info === 'NOT_SUPPORTED') {
